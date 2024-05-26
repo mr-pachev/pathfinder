@@ -1,14 +1,23 @@
 package bg.softuni.pathfinder.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "comments")
-public class Comments extends BaseEntity{
+public class Comments extends BaseEntity {
     private boolean approved;
-    private Instant created;
+    private LocalDateTime created;
+    @Column(name = "text_content")
+    private String textContent;
+
+    @ManyToMany
+    @JoinTable(name = "comments",
+            joinColumns = @JoinColumn(name = "comment_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id")
+    )
+    Set<User> authors;
 }

@@ -2,6 +2,9 @@ package bg.softuni.pathfinder.model.entity;
 
 import bg.softuni.pathfinder.model.enums.Level;
 import jakarta.persistence.*;
+
+import java.util.Set;
+
 @Entity
 @Table(name="users")
 public class User extends BaseEntity{
@@ -16,6 +19,9 @@ public class User extends BaseEntity{
     private UserRole userRole;
     @Enumerated(EnumType.STRING)
     private Level level;
+
+    @ManyToMany
+    private Set<Comments> comments;
 
     public String getUsername() {
         return username;
