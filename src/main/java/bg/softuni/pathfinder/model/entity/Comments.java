@@ -14,10 +14,7 @@ public class Comments extends BaseEntity {
     @Column(name = "text_content")
     private String textContent;
 
-    @ManyToMany
-    @JoinTable(name = "comments",
-            joinColumns = @JoinColumn(name = "comment_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id")
-    )
-    Set<User> authors;
+    @ManyToOne
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    private User author;
 }

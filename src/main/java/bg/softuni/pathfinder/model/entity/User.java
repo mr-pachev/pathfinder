@@ -10,7 +10,7 @@ import java.util.Set;
 public class User extends BaseEntity{
     private String username;
     private String password;
-    @Column(name = "fuul_name")
+    @Column(name = "full_name")
     private String fullName;
     private Integer age;
     private String email;
@@ -20,7 +20,7 @@ public class User extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Level level;
 
-    @ManyToMany
+    @OneToMany(targetEntity = Comments.class, mappedBy = "author")
     private Set<Comments> comments;
 
     public String getUsername() {
@@ -78,4 +78,5 @@ public class User extends BaseEntity{
     public void setLevel(Level level) {
         this.level = level;
     }
+
 }
