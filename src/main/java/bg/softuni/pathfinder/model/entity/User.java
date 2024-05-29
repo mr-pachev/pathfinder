@@ -79,4 +79,11 @@ public class User extends BaseEntity{
         this.level = level;
     }
 
+    public Set<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comments> comments) {
+        this.comments = comments;
+    }
 }
