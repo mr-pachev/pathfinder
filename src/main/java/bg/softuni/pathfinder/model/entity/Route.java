@@ -22,8 +22,11 @@ public class Route extends BaseEntity{
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User author;
 
-    @OneToMany(targetEntity = Comments.class, mappedBy = "route")
+    @OneToMany
     private Set<Comments> comments;
+
+    @OneToMany
+    private Set<Categories> categories;
 
     @Column(name = "video_url", columnDefinition = "TEXT")
     private String videoUrl;

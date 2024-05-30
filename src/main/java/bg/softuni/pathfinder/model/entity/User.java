@@ -14,9 +14,12 @@ public class User extends BaseEntity{
     private String fullName;
     private Integer age;
     private String email;
-    @ManyToOne
-    @JoinColumn(name = "roles_id", referencedColumnName = "id")
-    private UserRole userRole;
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", 			referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id", 		referencedColumnName = "id")
+    )
+    private Set<UserRole> userRole;
     @Enumerated(EnumType.STRING)
     private Level level;
 
@@ -74,28 +77,12 @@ public class User extends BaseEntity{
         this.email = email;
     }
 
-    public UserRole getUserRole() {
+    public Set<UserRole> getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(UserRole userRole) {
+    public void setUserRole(Set<UserRole> userRole) {
         this.userRole = userRole;
-    }
-
-    public Level getLevel() {
-        return level;
-    }
-
-    public void setLevel(Level level) {
-        this.level = level;
-    }
-
-    public Set<Comments> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comments> comments) {
-        this.comments = comments;
     }
 
     public Set<Route> getRoutes() {
@@ -129,4 +116,22 @@ public class User extends BaseEntity{
     public void setMessageSet(Set<Message> messageSet) {
         this.messageSet = messageSet;
     }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+
+    public Set<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comments> comments) {
+        this.comments = comments;
+    }
+
+
 }

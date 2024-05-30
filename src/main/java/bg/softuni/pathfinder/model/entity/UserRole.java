@@ -8,16 +8,21 @@ import java.util.Set;
 @Table(name="roles")
 public class UserRole extends BaseEntity{
     @Enumerated(EnumType.STRING)
-    private Role role;
-    @OneToMany(targetEntity = User.class, mappedBy = "userRole")
-    Set<User> users;
+    private Role name;
 
-    public Role getRole() {
-        return role;
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "roles_id", 			referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id", 		referencedColumnName = "id")
+    )
+    private Set<User> users;
+
+    public Role getName() {
+        return name;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setName(Role name) {
+        this.name = name;
     }
 
     public Set<User> getUsers() {
