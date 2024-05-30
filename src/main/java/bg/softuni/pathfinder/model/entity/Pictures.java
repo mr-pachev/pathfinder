@@ -1,9 +1,6 @@
 package bg.softuni.pathfinder.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "pictures")
@@ -13,8 +10,10 @@ public class Pictures extends BaseEntity{
     private String url;
 
     @ManyToOne
-
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User author;
 
+    @ManyToOne
+    @JoinColumn(name = "route_id", referencedColumnName = "id")
     private Route route;
 }
