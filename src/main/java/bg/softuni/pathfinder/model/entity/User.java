@@ -23,6 +23,9 @@ public class User extends BaseEntity{
     @OneToMany(targetEntity = Comments.class, mappedBy = "author")
     private Set<Comments> comments;
 
+    @OneToMany(targetEntity = Route.class, mappedBy = "author")
+    private Set<Route> routes;
+
     @OneToMany(targetEntity = Pictures.class, mappedBy = "author")
     private Set<Pictures> pictures;
 
