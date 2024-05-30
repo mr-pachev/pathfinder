@@ -8,16 +8,17 @@ import java.util.Set;
 @Entity
 @Table(name = "routes")
 public class Route extends BaseEntity{
+
+    private String name;
     @Column(columnDefinition = "TEXT")
     private String description;
     @Column(name = " gpx_coordinates", columnDefinition = "LONGTEXT")
     private String gpxCoordinates;
     @Enumerated(EnumType.STRING)
-    @Column(name = "level_enum")
+    @Column(name = "level")
     private Level level;
-
-    private String name;
-
+    @Column(name = "video_url", columnDefinition = "TEXT")
+    private String videoUrl;
     @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User author;
@@ -32,8 +33,13 @@ public class Route extends BaseEntity{
     )
     private Set<Categories> categories;
 
-    @Column(name = "video_url", columnDefinition = "TEXT")
-    private String videoUrl;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getDescription() {
         return description;
@@ -59,12 +65,12 @@ public class Route extends BaseEntity{
         this.level = level;
     }
 
-    public String getName() {
-        return name;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
     }
 
     public User getAuthor() {
@@ -83,14 +89,6 @@ public class Route extends BaseEntity{
         this.comments = comments;
     }
 
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
-    }
-
     public Set<Categories> getCategories() {
         return categories;
     }
@@ -98,6 +96,4 @@ public class Route extends BaseEntity{
     public void setCategories(Set<Categories> categories) {
         this.categories = categories;
     }
-
-
 }

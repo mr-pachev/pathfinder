@@ -48,4 +48,5 @@ public class Pictures extends BaseEntity{
     public void setRoute(Route route) {
         this.route = route;
     }
+
 }
