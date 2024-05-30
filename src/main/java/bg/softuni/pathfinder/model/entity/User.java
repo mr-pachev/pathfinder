@@ -28,6 +28,8 @@ public class User extends BaseEntity{
 
     @OneToMany(targetEntity = Pictures.class, mappedBy = "author")
     private Set<Pictures> pictures;
+    @OneToMany(targetEntity = Message.class, mappedBy = "author")
+    private Set<Message>messages;
 
     public String getUsername() {
         return username;
