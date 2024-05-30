@@ -12,10 +12,10 @@ public class UserRole extends BaseEntity{
 
     @ManyToMany
     @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "roles_id", 			referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id", 		referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "roles_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id")
     )
-    private Set<User> users;
+    Set<User> users;
 
     public Role getName() {
         return name;

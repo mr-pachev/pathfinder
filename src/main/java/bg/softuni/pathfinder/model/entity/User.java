@@ -16,8 +16,8 @@ public class User extends BaseEntity{
     private String email;
     @ManyToMany
     @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id", 			referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "roles_id", 		referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id",referencedColumnName = "id")
     )
     private Set<UserRole> userRole;
     @Enumerated(EnumType.STRING)

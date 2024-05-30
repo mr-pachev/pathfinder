@@ -22,10 +22,14 @@ public class Route extends BaseEntity{
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User author;
 
-    @OneToMany
+    @OneToMany(targetEntity = Comments.class, mappedBy = "route")
     private Set<Comments> comments;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "routes_categories",
+            joinColumns = @JoinColumn(name = "route_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "categories_id",referencedColumnName = "id")
+    )
     private Set<Categories> categories;
 
     @Column(name = "video_url", columnDefinition = "TEXT")
@@ -86,4 +90,14 @@ public class Route extends BaseEntity{
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
+
+    public Set<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Categories> categories) {
+        this.categories = categories;
+    }
+
+
 }
