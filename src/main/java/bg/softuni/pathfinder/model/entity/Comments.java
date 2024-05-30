@@ -16,6 +16,10 @@ public class Comments extends BaseEntity {
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User author;
 
+    @ManyToOne
+    @JoinColumn(name = "route_id", referencedColumnName = "id")
+    private Route route;
+
     public boolean isApproved() {
         return approved;
     }
@@ -47,4 +51,13 @@ public class Comments extends BaseEntity {
     public void setAuthor(User author) {
         this.author = author;
     }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
 }
