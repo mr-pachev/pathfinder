@@ -31,6 +31,9 @@ public class User extends BaseEntity{
     @OneToMany(targetEntity = Message.class, mappedBy = "author")
     private Set<Message>messages;
 
+    @OneToMany(targetEntity = Message.class, mappedBy = "recipient")
+    private Set<Message> messageSet;
+
     public String getUsername() {
         return username;
     }
@@ -93,5 +96,37 @@ public class User extends BaseEntity{
 
     public void setComments(Set<Comments> comments) {
         this.comments = comments;
+    }
+
+    public Set<Route> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(Set<Route> routes) {
+        this.routes = routes;
+    }
+
+    public Set<Pictures> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(Set<Pictures> pictures) {
+        this.pictures = pictures;
+    }
+
+    public Set<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Set<Message> messages) {
+        this.messages = messages;
+    }
+
+    public Set<Message> getMessageSet() {
+        return messageSet;
+    }
+
+    public void setMessageSet(Set<Message> messageSet) {
+        this.messageSet = messageSet;
     }
 }
