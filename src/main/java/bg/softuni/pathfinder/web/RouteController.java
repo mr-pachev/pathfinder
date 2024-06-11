@@ -13,7 +13,7 @@ public class RouteController {
     RouteService routeService;
 
     @GetMapping("/routes")
-    public String carRoutesView(Model model){
+    public String allRoutedView(Model model){
         List<Route> allRoutes = routeService.viewAllRoutes();
         model.addAttribute("routes", allRoutes);
 
