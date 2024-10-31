@@ -1,4 +1,10 @@
-<header th:fragment="header">
+<!DOCTYPE html>
+<html lang="bg" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/head.html}"></head>
+
+<body>
+<div th:fragment="navigation(activeLink)">
     <nav class="main-nav">
         <ul>
             <li>
@@ -27,4 +33,6 @@
             </li>
         </ul>
     </nav>
-</header>
+</div>
+</body>
+</html>
