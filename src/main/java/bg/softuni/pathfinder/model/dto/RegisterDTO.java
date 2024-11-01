@@ -23,6 +23,12 @@ public class RegisterDTO {
     @Size(min = 4, max = 10)
     private String confirmPassword;
 
+    private boolean userIsExist;
+
+    private boolean emailIsExist;
+
+    private boolean unConfPass;
+
     public String getUsername() {
         return username;
     }
@@ -69,5 +75,29 @@ public class RegisterDTO {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public boolean isUserIsExist() {
+        return userIsExist;
+    }
+
+    public void setUserIsExist(boolean userIsExist) {
+        this.userIsExist = userIsExist;
+    }
+
+    public boolean isEmailIsExist() {
+        return emailIsExist;
+    }
+
+    public void setEmailIsExist(boolean emailIsExist) {
+        this.emailIsExist = emailIsExist;
+    }
+
+    public boolean isUnConfPass() {
+        return unConfPass;
+    }
+
+    public void setUnConfPass(boolean unConfPass) {
+        this.unConfPass = unConfPass;
     }
 }
