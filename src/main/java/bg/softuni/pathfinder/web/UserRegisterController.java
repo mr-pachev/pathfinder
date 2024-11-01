@@ -28,23 +28,23 @@ public class UserRegisterController {
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
 
-        registerDTO.setUserIsExist(userService.isExistUser(userRegistrationDTO.getUsername()));
-
-        userRegistrationDTO.setEmailIsExist(userService.isExistEmail(userRegistrationDTO.getEmail()));
+//        registerDTO.setUserIsExist(userService.isExistUser(userRegistrationDTO.getUsername()));
+//
+//        userRegistrationDTO.setEmailIsExist(userService.isExistEmail(userRegistrationDTO.getEmail()));
 
         if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())){
             registerDTO.setUnConfPass(true);
         }
 
-        if (bindingResult.hasErrors()
-                || userRegistrationDTO.isUserIsExist()
-                || userRegistrationDTO.isEmailIsExist()
-                || userRegistrationDTO.isUnConfPass()) {
-            redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerDTO", bindingResult);
-            return "redirect:/register";
-        }
-        userService.registrationUser(userRegistrationDTO);
+//        if (bindingResult.hasErrors()
+//                || userRegistrationDTO.isUserIsExist()
+//                || userRegistrationDTO.isEmailIsExist()
+//                || userRegistrationDTO.isUnConfPass()) {
+//            redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
+//            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerDTO", bindingResult);
+//            return "redirect:/register";
+//        }
+//        userService.registrationUser(userRegistrationDTO);
 
         return "redirect:/";
     }
