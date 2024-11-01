@@ -1,9 +1,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"></head>
 <body>
+<header th:replace="fragments/navigation"></header>
 <div class="wrapper">
-    <!-- Navigation -->
-    <header th:replace="fragments/navigation"></header>
 
     <section class="road">
         <div th:each="singleRouad : ${routes}">
