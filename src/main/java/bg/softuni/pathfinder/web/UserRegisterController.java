@@ -1,6 +1,7 @@
 package bg.softuni.pathfinder.web;
 
 import bg.softuni.pathfinder.model.dto.RegisterDTO;
+import bg.softuni.pathfinder.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserRegisterController {
+
+    private final UserService userService;
+
+    public UserRegisterController(UserService userService) {
+        this.userService = userService;
+    }
 
     //add new user
     @GetMapping("/users/register")
@@ -28,8 +35,8 @@ public class UserRegisterController {
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
 
-//        registerDTO.setUserIsExist(userService.isExistUser(userRegistrationDTO.getUsername()));
-//
+        registerDTO.setUserIsExist(userService.isExistUser(registerDTO.getUsername()));
+
 //        userRegistrationDTO.setEmailIsExist(userService.isExistEmail(userRegistrationDTO.getEmail()));
 
         if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())){
