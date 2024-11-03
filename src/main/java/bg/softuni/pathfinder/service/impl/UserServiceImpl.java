@@ -10,6 +10,7 @@ import bg.softuni.pathfinder.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -52,9 +53,11 @@ public class UserServiceImpl implements UserService {
             userRole = userRoleRepository.findAllById(3);
         }
 
-        Set<UserRole> currentUserRole = user.getUserRole();
+        Set<UserRole> currentUserRole = new HashSet<>();
         currentUserRole.add(userRole);
 
-        System.out.println();
+        user.setUserRole(currentUserRole);
+
+        userRepository.save(user);
     }
 }
