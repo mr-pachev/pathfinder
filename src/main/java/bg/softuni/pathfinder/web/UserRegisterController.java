@@ -30,7 +30,7 @@ public class UserRegisterController {
         return "register";
     }
 
-    @PostMapping("register")
+    @PostMapping("/users/register")
     public String registerUser(@Valid RegisterDTO registerDTO,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
@@ -49,9 +49,9 @@ public class UserRegisterController {
                 || registerDTO.isUnConfPass()) {
             redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerDTO", bindingResult);
-            return "redirect:/register";
+            return "redirect:/users/register";
         }
-//        userService.registrationUser(userRegistrationDTO);
+        userService.registrationUser(registerDTO);
 
         return "redirect:/";
     }
