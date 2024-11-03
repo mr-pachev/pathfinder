@@ -37,20 +37,20 @@ public class UserRegisterController {
 
         registerDTO.setUserIsExist(userService.isExistUser(registerDTO.getUsername()));
 
-//        userRegistrationDTO.setEmailIsExist(userService.isExistEmail(userRegistrationDTO.getEmail()));
+        registerDTO.setEmailIsExist(userService.isExistEmail(registerDTO.getEmail()));
 
-        if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())){
+        if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())) {
             registerDTO.setUnConfPass(true);
         }
 
-//        if (bindingResult.hasErrors()
-//                || userRegistrationDTO.isUserIsExist()
-//                || userRegistrationDTO.isEmailIsExist()
-//                || userRegistrationDTO.isUnConfPass()) {
-//            redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
-//            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerDTO", bindingResult);
-//            return "redirect:/register";
-//        }
+        if (bindingResult.hasErrors()
+                || registerDTO.isUserIsExist()
+                || registerDTO.isEmailIsExist()
+                || registerDTO.isUnConfPass()) {
+            redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerDTO", bindingResult);
+            return "redirect:/register";
+        }
 //        userService.registrationUser(userRegistrationDTO);
 
         return "redirect:/";
