@@ -51,17 +51,18 @@ public class UserServiceImpl implements UserService {
 
         user.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
 
+        //role by default
         UserRole userRole = userRoleRepository.findByName(Role.USER);
 
-        Set<UserRole> currentUserRole = new HashSet<>();
-        currentUserRole.add(userRole);
+        Set<UserRole> currentUserRoles = new HashSet<>();
+        currentUserRoles.add(userRole);
 
         //adding an administrator role to the first user
         if (userRepository.count() == 0) {
-            currentUserRole.add(userRoleRepository.findByName(Role.ADMIN));
+            currentUserRoles.add(userRoleRepository.findByName(Role.ADMIN));
         }
 
-        user.setUserRole(currentUserRole);
+        user.setUserRole(currentUserRoles);
 
         userRepository.save(user);
     }
