@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.web;
 
+import bg.softuni.pathfinder.model.dto.UserLoginDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,9 @@ public class UserLoginController {
     }
 
     @GetMapping("users/login-error")
-    public String viewLoginError(Model model) { 	model.addAttribute("showErrorMessage", true); 	model.addAttribute("loginData", new UserLoginDTO());
+    public String viewLoginError(Model model) {
+        model.addAttribute("showErrorMessage", true);
+        model.addAttribute("loginData", new UserLoginDTO());
         return "login";
     }
 
