@@ -14,7 +14,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         authorizeRequest -> {
                             authorizeRequest
-                                    .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()//дава достъп до статичните ресурси без оторизация
+                                    .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()//allows access to static resources without authorization
                                     .requestMatchers("/", "/users/login", "/users/login-error", "/users/register", "/about").permitAll()
                                     .anyRequest().authenticated();
                         }
