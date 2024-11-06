@@ -8,31 +8,31 @@
 
         <div class="row g-3 align-items-center">
 
-            <form
-                    action="/"
-                    method="">
+            <form th:action="@{/users/login}"
+                  th:object="${userLoginDTO}"
+                  th:method="POST">
                 <div>
                     <div class="col-auto">
-                        <label for="inputUsername" class="col-form-label ">Username</label>
+                        <label class="col-form-label" for="inputUsername">Username</label>
                     </div>
                     <div class="col-auto">
-                        <input type="text"
+                        <input class="form-control"
+                               type="text"
                                name="username"
-                               required minlength="4" maxlength="20"
                                id="inputUsername"
-                               class="form-control"
+                               th:field="*{username}"
                                aria-describedby="usernameHelpInline">
                     </div>
                 </div>
                 <div>
                     <div class="col-auto">
-                        <label for="inputPassword" class="col-form-label ">Password</label>
+                        <label class="col-form-label" for="inputPassword">Password</label>
                     </div>
                     <div class="col-auto">
-                        <input type="password"
+                        <input class="form-control"
+                               type="password"
                                name="password"
-                               required minlength="4" maxlength="20"
-                               id="inputPassword" class="form-control"
+                               id="inputPassword"
                                aria-describedby="passwordHelpInline">
                     </div>
                 </div>
