@@ -24,7 +24,7 @@ public class SecurityConfig {
                             formLogin.loginPage("/users/login");
                             formLogin.usernameParameter("username");
                             formLogin.passwordParameter("password");
-                            formLogin.defaultSuccessUrl("/index", true);
+                            formLogin.defaultSuccessUrl("/", true);
                             formLogin.failureUrl("/users/login-error");//wrong login page here is the logic for the validation error messages
                         }
                 ) //authentication page
