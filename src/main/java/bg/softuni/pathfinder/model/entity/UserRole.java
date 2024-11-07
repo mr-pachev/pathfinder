@@ -10,7 +10,7 @@ public class UserRole extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Role name;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "roles_id",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id")

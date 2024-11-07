@@ -19,7 +19,7 @@ public class UserLoginController {
         return "login";
     }
 
-    @GetMapping("users/login-error")
+    @GetMapping("/users/login-error")
     public String viewLoginError(Model model) {
         model.addAttribute("showErrorMessage", true);
         return "login";

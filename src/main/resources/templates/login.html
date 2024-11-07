@@ -1,9 +1,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"></head>
+
 <body>
 <header th:replace="fragments/navigation"></header>
+
 <main class="p-5 align-content-center bg-blur my-register-div">
-    <h1 class="    border-bottom mb-5">Login</h1>
+    <h1 class="border-bottom mb-5">Login</h1>
     <div class="d-flex justify-content-center">
 
         <div class="row g-3 align-items-center">
@@ -13,26 +15,27 @@
                   th:method="POST">
                 <div>
                     <div class="col-auto">
-                        <label class="col-form-label" for="inputUsername">Username</label>
+                        <label class="col-form-label" for="username">Username</label>
                     </div>
                     <div class="col-auto">
                         <input class="form-control"
                                type="text"
                                name="username"
-                               id="inputUsername"
+                               id="username"
                                th:field="*{username}"
                                aria-describedby="usernameHelpInline">
                     </div>
                 </div>
                 <div>
                     <div class="col-auto">
-                        <label class="col-form-label" for="inputPassword">Password</label>
+                        <label class="col-form-label" for="password">Password</label>
                     </div>
                     <div class="col-auto">
                         <input class="form-control"
                                type="password"
                                name="password"
-                               id="inputPassword"
+                               id="password"
+                               th:field="*{password}"
                                aria-describedby="passwordHelpInline">
                     </div>
 
