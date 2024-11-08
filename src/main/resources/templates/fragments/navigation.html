@@ -5,30 +5,36 @@
 
 <body>
 <div th:fragment="navigation(activeLink)">
+    <div>
+    <h5 class="text-center text-white mt-5">Welcome
+        <th:block th:if="${@userHelperService.isAuthenticated()}" th:text="${@userHelperService.getUser().username}"></th:block>!
+        <th:block th:unless="${@userHelperService.isAuthenticated()}">guest!</th:block>
+    </h5>
+    </div>
     <nav class="main-nav">
         <ul>
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
+            <li sec:authorize="!isAuthenticated()">
                 <a th:href="@{/users/login}">Login</a>
             </li>
-            <li>
+            <li sec:authorize="!isAuthenticated()">
                 <a class="nav-link" th:href="@{/users/register}">Register</a>
             </li>
             <li>
                 <a href="/">About</a>
             </li>
-            <li>
+            <li sec:authorize="isAuthenticated()">
                 <a th:href="@{/add-route}">Add new route</a>
             </li>
-            <li>
+            <li sec:authorize="isAuthenticated()">
                 <a th:href="@{/users/profile}">Profile</a>
             </li>
-            <li>
+            <li sec:authorize="isAuthenticated()">
                 <a href="/">Admin</a>
             </li>
-            <li>
+            <li sec:authorize="isAuthenticated()">
                 <a href="/">Logout</a>
             </li>
         </ul>
