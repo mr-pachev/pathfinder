@@ -15,6 +15,7 @@ public class RouteServiceImpl implements RouteService {
         this.routeRepository = routeRepository;
     }
 
+    //view all routes
     @Override
     public List<Route> viewAllRoutes() {
 

@@ -6,5 +6,6 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 @Transactional
 public interface RouteService {
+    //view all routes
     List<Route> viewAllRoutes();
 }
