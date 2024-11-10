@@ -10,7 +10,11 @@ import java.util.List;
 
 @Controller
 public class RouteController {
-    RouteService routeService;
+    private final RouteService routeService;
+
+    public RouteController(RouteService routeService) {
+        this.routeService = routeService;
+    }
 
     @GetMapping("/routes")
     public String allRoutedView(Model model){
