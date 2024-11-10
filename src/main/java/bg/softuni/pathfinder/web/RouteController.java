@@ -37,7 +37,7 @@ public class RouteController {
         }
 
         model.addAttribute("levels", Level.values());
-        model.addAttribute("category", CategoriesRoute.values());
+        model.addAttribute("categories", CategoriesRoute.values());
 
         return "add-route";
     }
